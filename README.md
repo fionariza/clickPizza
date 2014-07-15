@@ -1,4 +1,0 @@
-clickPizza
-==========
-
-Pizza store app
