@@ -106,9 +106,6 @@
     </Compile>
     <Compile Include="ViewModel\PizzaDetailsViewModel.cs" />
     <Compile Include="ViewModel\PizzaSelectionPageViewModel.cs" />
-    <Compile Include="View\PizzaDetailsView.xaml.cs">
-      <DependentUpon>PizzaDetailsView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\PizzaSelectionPageView.xaml.cs">
       <DependentUpon>PizzaSelectionPageView.xaml</DependentUpon>
     </Compile>
@@ -118,10 +115,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="View\PizzaDetailsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\PizzaSelectionPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

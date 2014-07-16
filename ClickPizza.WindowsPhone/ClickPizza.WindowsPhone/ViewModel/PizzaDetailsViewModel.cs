@@ -17,7 +17,11 @@ namespace ClickPizza.WindowsPhone.ViewModel
         /// </summary>
         public PizzaDetailsViewModel()
         {
-            _model = new PizzaDetailsModel();
+        }
+
+        public PizzaDetailsViewModel(PizzaDetailsModel model)
+        {
+            _model = model;
         }
 
         public string ImageUri { get { return _model.ImageUri; } }

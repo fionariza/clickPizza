@@ -7,7 +7,7 @@ namespace ClickPizza.WindowsPhone.Data
     {
         private static readonly StubRepository _stubRepository = new StubRepository();
 
-        public StubRepository Instance
+        public static StubRepository Instance
         {
             get
             {
@@ -20,7 +20,7 @@ namespace ClickPizza.WindowsPhone.Data
         private StubRepository()
         { }
 
-        public IEnumerable<PizzaDetailsModel> GetPizzaList()
+        public IEnumerable<PizzaDetailsModel> GetPizzaCollection()
         {
             for (var i = 1; i < 11; i++)
             {

@@ -20,8 +20,6 @@ namespace ClickPizza.WindowsPhone
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
-        
-
         /// <summary>
         /// Constructor for the Application object.
         /// </summary>
@@ -90,7 +88,7 @@ namespace ClickPizza.WindowsPhone
         {
             
         }
-        
+
 
         // Code to execute on Unhandled Exceptions
 

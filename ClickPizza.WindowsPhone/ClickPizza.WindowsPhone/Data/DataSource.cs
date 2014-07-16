@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using ClickPizza.WindowsPhone.Model;
+using ClickPizza.WindowsPhone.ViewModel;
 
 namespace ClickPizza.WindowsPhone.Data
 {
@@ -9,12 +11,15 @@ namespace ClickPizza.WindowsPhone.Data
 
         public DataSource(IRepository repository)
         {
-            _pizzaCollection = repository.GetPizzaList();
+            _pizzaCollection = repository.GetPizzaCollection();
         }
 
-        public IEnumerable<PizzaDetailsModel> PizzaCollection
+        public IEnumerable<PizzaDetailsViewModel> PizzaCollection
         {
-            get { return _pizzaCollection; }
+            get 
+            {
+                return _pizzaCollection.Select(pizzaDetailsModel => new PizzaDetailsViewModel(pizzaDetailsModel));
+            }
         }
     }
 }
