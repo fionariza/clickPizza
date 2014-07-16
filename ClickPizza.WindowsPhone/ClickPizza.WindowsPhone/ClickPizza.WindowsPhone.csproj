@@ -105,12 +105,12 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\PizzaDetailsViewModel.cs" />
-    <Compile Include="ViewModel\PizzaSelectedListViewModel.cs" />
+    <Compile Include="ViewModel\PizzaSelectionPageViewModel.cs" />
     <Compile Include="View\PizzaDetailsView.xaml.cs">
       <DependentUpon>PizzaDetailsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\PizzaSelectedListView.xaml.cs">
-      <DependentUpon>PizzaSelectedListView.xaml</DependentUpon>
+    <Compile Include="View\PizzaSelectionPageView.xaml.cs">
+      <DependentUpon>PizzaSelectionPageView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -122,7 +122,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\PizzaSelectedListView.xaml">
+    <Page Include="View\PizzaSelectionPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

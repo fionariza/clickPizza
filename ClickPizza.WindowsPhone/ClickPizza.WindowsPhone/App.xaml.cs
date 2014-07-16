@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
+using ClickPizza.WindowsPhone.View;
+using ClickPizza.WindowsPhone.ViewModel;
 using GalaSoft.MvvmLight.Threading;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
@@ -17,6 +19,8 @@ namespace ClickPizza.WindowsPhone
         /// </summary>
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
+
+        
 
         /// <summary>
         /// Constructor for the Application object.
@@ -55,11 +59,17 @@ namespace ClickPizza.WindowsPhone
 
         }
 
+
+        void RootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
+        {
+
+        }
+        
         // Code to execute when the application is launching (eg, from Start)
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
-            RootFrame.Navigate(new Uri(@"/View/PizzaSelectedListView.xaml", UriKind.Relative));
+           
         }
 
         // Code to execute when the application is activated (brought to foreground)
@@ -80,7 +90,7 @@ namespace ClickPizza.WindowsPhone
         {
             
         }
-
+        
 
         // Code to execute on Unhandled Exceptions
 
@@ -105,6 +115,8 @@ namespace ClickPizza.WindowsPhone
 
             // Handle reset requests for clearing the backstack
             RootFrame.Navigated += CheckForResetNavigation;
+
+            RootFrame.Navigating += RootFrame_Navigating;
 
             // Ensure we don't initialize again
             phoneApplicationInitialized = true;
@@ -147,23 +159,6 @@ namespace ClickPizza.WindowsPhone
 
         #endregion
 
-        // Initialize the app's font and flow direction as defined in its localized resource strings.
-        //
-        // To ensure that the font of your application is aligned with its supported languages and that the
-        // FlowDirection for each of those languages follows its traditional direction, ResourceLanguage
-        // and ResourceFlowDirection should be initialized in each resx file to match these values with that
-        // file's culture. For example:
-        //
-        // AppResources.es-ES.resx
-        //    ResourceLanguage's value should be "es-ES"
-        //    ResourceFlowDirection's value should be "LeftToRight"
-        //
-        // AppResources.ar-SA.resx
-        //     ResourceLanguage's value should be "ar-SA"
-        //     ResourceFlowDirection's value should be "RightToLeft"
-        //
-        // For more info on localizing Windows Phone apps see http://go.microsoft.com/fwlink/?LinkId=262072.
-        //
         private void InitializeLanguage()
         {
             try
@@ -202,5 +197,6 @@ namespace ClickPizza.WindowsPhone
                 throw;
             }
         }
+
     }
 }
