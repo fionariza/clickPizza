@@ -42,12 +42,16 @@
         <Grid x:Name="ContentPanel"
               Grid.Row="1"
               Margin="12,0,12,0">
-            <phone:Pivot HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" ItemsSource="{Binding PizzaCollection}" Title="Pizza Order">
-               <phone:Pivot.ItemTemplate>
+            <phone:Pivot HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" ItemsSource="{Binding Path=PizzaCollection}">
+               <phone:Pivot.HeaderTemplate>
+                   <DataTemplate>
+                        <TextBlock Text="{Binding Path=Name}"/>
+                   </DataTemplate>
+               </phone:Pivot.HeaderTemplate>
+                <phone:Pivot.ItemTemplate>
                         <DataTemplate>
                         <StackPanel x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
                             <Image Source="{Binding Path=ImageUri}" HorizontalAlignment="Left"  Height="100" Width="300" VerticalAlignment="Top" />
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Name}"/>
                             <TextBlock TextWrapping="Wrap" Text="{Binding Path=Composition}"/>
                             <TextBlock TextWrapping="Wrap" Text="{Binding Path=Length}"/>
                             <TextBlock TextWrapping="Wrap" Text="{Binding Path = Weight}"/>
@@ -56,9 +60,6 @@
                         </DataTemplate>
                 </phone:Pivot.ItemTemplate>
             </phone:Pivot>
-
-
-
         </Grid>
     </Grid>
 
