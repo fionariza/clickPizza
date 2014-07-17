@@ -104,7 +104,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Tools\NumericToStringConverter.cs" />
     <Compile Include="ViewModel\PizzaDetailsViewModel.cs" />
     <Compile Include="ViewModel\PizzaSelectionPageViewModel.cs" />
     <Compile Include="View\PizzaSelectionPageView.xaml.cs">
@@ -155,6 +154,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Tiles\IconicTileSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tools\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
