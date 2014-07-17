@@ -24,7 +24,7 @@ namespace ClickPizza.WindowsPhone.Data
         {
             for (var i = 1; i < 11; i++)
             {
-                yield return new PizzaDetailsModel(@"/Assets/AppllicationIcon.png", @"Pizza № " + i, "Some composition", i * i, i + i, i * 100 / 3);
+                yield return new PizzaDetailsModel(@"/Assets/AppllicationIcon.png", @"Pizza № " + i, "Some composition", i * i, i + i, i *   100 / 3.0F);
             }
         }
     }
