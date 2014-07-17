@@ -6,7 +6,7 @@
                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             xmlns:ignore="http://www.ignore.com"
-                            xmlns:view="clr-namespace:ClickPizza.WindowsPhone.View"
+                            xmlns:tools="clr-namespace:ClickPizza.WindowsPhone.Tools"
                             mc:Ignorable="d ignore"
                             FontFamily="{StaticResource PhoneFontFamilyNormal}"
                             FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -19,7 +19,9 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot"
           Background="Transparent">
-
+        <Grid.Resources>
+            <tools:NumericToStringConverter x:Key="numConverter"/>
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
@@ -30,10 +32,10 @@
         <StackPanel x:Name="TitlePanel"
                     Grid.Row="0"
                     Margin="12,17,0,28">
-            <TextBlock Text="MY APPLICATION"
+            <TextBlock Text="PIZZAclick"
                        Style="{StaticResource PhoneTextNormalStyle}"
                        Margin="12,0" />
-            <TextBlock Text="page name"
+            <TextBlock Text="меню"
                        Margin="9,-7,0,0"
                        Style="{StaticResource PhoneTextTitle1Style}" />
         </StackPanel>
@@ -53,9 +55,9 @@
                         <StackPanel x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
                             <Image Source="{Binding Path=ImageUri}" HorizontalAlignment="Left"  Height="100" Width="300" VerticalAlignment="Top" />
                             <TextBlock TextWrapping="Wrap" Text="{Binding Path=Composition}"/>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Length}"/>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Path = Weight}"/>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Path = Price}"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Path=Length,Converter={StaticResource numConverter},ConverterParameter=Length}"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Path = Weight,Converter={StaticResource numConverter},ConverterParameter=Weight}"/>
+                            <TextBlock TextWrapping="Wrap" Text="{Binding Path = Price,Converter={StaticResource numConverter},ConverterParameter=Price}"/>
                             </StackPanel>
                         </DataTemplate>
                 </phone:Pivot.ItemTemplate>
