@@ -9,10 +9,7 @@ namespace ClickPizza.WindowsPhone.ViewModel
     public class PizzaSelectionPageViewModel : ViewModelBase
     {
         private DataSource _dataSource = new DataSource(StubRepository.Instance);
-        /// <summary>
-        /// Initializes a new instance of the PizzaSelectionPageModel class.
-        /// </summary>
-        
+
         public PizzaSelectionPageViewModel()
         {
             _pizzaCollection = new ObservableCollection<PizzaDetailsViewModel>(_dataSource.PizzaCollection);
