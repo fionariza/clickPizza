@@ -1,4 +1,5 @@
-﻿using ClickPizza.WindowsPhone.Model;
+﻿using System;
+using ClickPizza.WindowsPhone.Model;
 using GalaSoft.MvvmLight;
 
 namespace ClickPizza.WindowsPhone.ViewModel
@@ -24,7 +25,7 @@ namespace ClickPizza.WindowsPhone.ViewModel
             _model = model;
         }
 
-        public string ImageUri { get { return _model.ImageUri; } }
+        public Uri ImageUri { get { return new Uri(_model.ImageStringUri,UriKind.RelativeOrAbsolute); } }
 
         public string Name { get { return _model.Name; } }
 

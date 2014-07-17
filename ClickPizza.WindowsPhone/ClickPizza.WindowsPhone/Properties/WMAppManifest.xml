@@ -2,7 +2,7 @@
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
   <App xmlns="" ProductID="{59d2ebd1-b3e1-4d89-b311-9b1cc00c27fb}" Title="ClickPizza.WindowsPhone" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="ClickPizza.WindowsPhone author" Description="Sample description" Publisher="ClickPizza.WindowsPhone" PublisherID="{53556c5e-5978-4839-9cfa-ca2cbdb09bb5}">
-    <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
+    <IconPath IsRelative="true" IsResource="false">Assets\Tiles\IconicTileSmall.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_NETWORKING" />
       <Capability Name="ID_CAP_MEDIALIB_AUDIO" />

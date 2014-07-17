@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using ClickPizza.WindowsPhone.Model;
 
 namespace ClickPizza.WindowsPhone.Data
@@ -24,7 +26,9 @@ namespace ClickPizza.WindowsPhone.Data
         {
             for (var i = 1; i < 11; i++)
             {
-                yield return new PizzaDetailsModel(@"/Assets/AppllicationIcon.png", @"Pizza № " + i, "Some composition", i * i, i + i, i *   100 / 3.0F);
+                
+                string path = @"../Assets/PizzaImages/"+ new Random().Next(1,4)+".jpg";
+                yield return new PizzaDetailsModel(path, @"Pizza № " + i, "Some composition", i * i, i + i, i *   100 / 3.0F);
             }
         }
     }
