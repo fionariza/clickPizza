@@ -3,12 +3,10 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
-using ClickPizza.WindowsPhone.View;
-using ClickPizza.WindowsPhone.ViewModel;
+using ClickPizza.WindowsPhone.Resources;
 using GalaSoft.MvvmLight.Threading;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
-using ClickPizza.WindowsPhone.Resources;
 
 namespace ClickPizza.WindowsPhone
 {
@@ -25,7 +23,9 @@ namespace ClickPizza.WindowsPhone
         /// </summary>
         public App()
         {
-            
+            // Global handler for uncaught exceptions.
+            UnhandledException += Application_UnhandledException;
+
             // Standard XAML initialization
             InitializeComponent();
 
@@ -57,17 +57,10 @@ namespace ClickPizza.WindowsPhone
 
         }
 
-
-        void RootFrame_Navigating(object sender, NavigatingCancelEventArgs e)
-        {
-
-        }
-        
         // Code to execute when the application is launching (eg, from Start)
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
-           
         }
 
         // Code to execute when the application is activated (brought to foreground)
@@ -86,12 +79,27 @@ namespace ClickPizza.WindowsPhone
         // This code will not execute when the application is deactivated
         private void Application_Closing(object sender, ClosingEventArgs e)
         {
-            
         }
 
+        // Code to execute if a navigation fails
+        private void RootFrame_NavigationFailed(object sender, NavigationFailedEventArgs e)
+        {
+            if (Debugger.IsAttached)
+            {
+                // A navigation has failed; break into the debugger
+                Debugger.Break();
+            }
+        }
 
         // Code to execute on Unhandled Exceptions
-
+        private void Application_UnhandledException(object sender, ApplicationUnhandledExceptionEventArgs e)
+        {
+            if (Debugger.IsAttached)
+            {
+                // An unhandled exception has occurred; break into the debugger
+                Debugger.Break();
+            }
+        }
 
         #region Phone application initialization
 
@@ -111,10 +119,11 @@ namespace ClickPizza.WindowsPhone
 
             DispatcherHelper.Initialize();
 
+            // Handle navigation failures
+            RootFrame.NavigationFailed += RootFrame_NavigationFailed;
+
             // Handle reset requests for clearing the backstack
             RootFrame.Navigated += CheckForResetNavigation;
-
-            RootFrame.Navigating += RootFrame_Navigating;
 
             // Ensure we don't initialize again
             phoneApplicationInitialized = true;
@@ -195,6 +204,5 @@ namespace ClickPizza.WindowsPhone
                 throw;
             }
         }
-
     }
 }

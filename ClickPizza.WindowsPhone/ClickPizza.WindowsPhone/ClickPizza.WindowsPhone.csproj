@@ -113,6 +113,9 @@
     <Compile Include="View\PizzaSelectionPageView.xaml.cs">
       <DependentUpon>PizzaSelectionPageView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\PizzaSettingsPageView.xaml.cs">
+      <DependentUpon>PizzaSettingsPageView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -124,6 +127,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PizzaSelectionPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PizzaSettingsPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
