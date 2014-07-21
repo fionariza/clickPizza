@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Navigation;
+using ClickPizza.WindowsPhone.Data;
 using ClickPizza.WindowsPhone.Resources;
 using GalaSoft.MvvmLight.Threading;
 using Microsoft.Phone.Controls;
@@ -18,6 +19,14 @@ namespace ClickPizza.WindowsPhone
         /// <returns>The root frame of the Phone Application.</returns>
         public static PhoneApplicationFrame RootFrame { get; private set; }
 
+
+        public static IRepository Repository
+        {
+            get
+            {
+                return StubRepository.Instance;                
+            }
+        }
         /// <summary>
         /// Constructor for the Application object.
         /// </summary>
@@ -39,7 +48,7 @@ namespace ClickPizza.WindowsPhone
             if (Debugger.IsAttached)
             {
                 // Display the current frame rate counters.
-                Application.Current.Host.Settings.EnableFrameRateCounter = true;
+                Application.Current.Host.Settings.EnableFrameRateCounter = false;
 
                 // Show the areas of the app that are being redrawn in each frame.
                 //Application.Current.Host.Settings.EnableRedrawRegions = true;
