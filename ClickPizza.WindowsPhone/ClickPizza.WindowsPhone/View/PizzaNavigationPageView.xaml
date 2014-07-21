@@ -35,9 +35,9 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <StackPanel x:Name="ContentPanel" Grid.Row="1">
-            <Button Content="Пицца дня" Command="{Binding Path=NavigateCommand}" CommandParameter="PizzaSelectionPageView.xaml"/>
-            <Button Content="Выбрать готовую пиццу" Command="{Binding Path=NavigateCommand}" CommandParameter="PizzaCartPageView.xaml" />
+        <StackPanel x:Name="ContentPanel" Grid.Row="1"> 
+            <Button Content="Выбрать готовую пиццу" Command="{Binding Path=NavigateCommand}" CommandParameter="PizzaSelectionPageView.xaml" />
+            <Button Content="Пицца дня" Command="{Binding Path=NavigateCommand}" CommandParameter="PizzaCartPageView.xaml"/>
             <Button Content="Конструктор"/>
             <Button Content="Настройки" Command="{Binding Path=NavigateCommand}" CommandParameter="PizzaSettingsPageView.xaml"/>
         </StackPanel>

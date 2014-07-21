@@ -1,10 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Windows;
-using ClickPizza.WindowsPhone.Data;
-using ClickPizza.WindowsPhone.Tools;
+using System.Linq;
 using GalaSoft.MvvmLight;
-using Microsoft.Phone.Controls;
+using GalaSoft.MvvmLight.Command;
 
 namespace ClickPizza.WindowsPhone.ViewModel
 {
@@ -12,16 +11,12 @@ namespace ClickPizza.WindowsPhone.ViewModel
     {
         public PizzaCartPageViewModel()
         {
-            Cart.Instance.NewCollection(new DataSource(StubRepository.Instance).PizzaCollection);
-            var phoneApplicationFrame = Application.Current.RootVisual as PhoneApplicationFrame;
-            if (phoneApplicationFrame != null)
-                phoneApplicationFrame.Navigated += phoneApplicationFrame_Navigated;
+            GoToCheckoutCommand = new RelayCommand(GoToCheckout, CanCheckout);
         }
-
-        void phoneApplicationFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
+        
+        void Refresh()
         {
-            _pizzaCartCollection = new ObservableCollection<PizzaDetailsViewModel>(Cart.Instance.CartCollection);
-            RaisePropertyChanged("PizzaCartCollection");
+            _pizzaCartCollection = new ObservableCollection<PizzaDetailsViewModel>(App.Repository.GetPizzaCollection().Select(pizzadetails => new PizzaDetailsViewModel(pizzadetails)));
         }
 
         private ObservableCollection<PizzaDetailsViewModel> _pizzaCartCollection;
@@ -30,5 +25,23 @@ namespace ClickPizza.WindowsPhone.ViewModel
         {
             get { return _pizzaCartCollection; }
         }
+
+        #region CheckoutButton
+
+        public RelayCommand GoToCheckoutCommand { get; private set; }
+
+        private void GoToCheckout()
+        {
+            
+        }
+
+        private bool CanCheckout()
+        {
+            return true;
+        }
+
+        #endregion
+
+
     }
 }

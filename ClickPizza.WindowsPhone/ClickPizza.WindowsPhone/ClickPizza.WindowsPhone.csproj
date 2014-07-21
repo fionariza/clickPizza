@@ -93,10 +93,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\DataSource.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\StubRepository.cs" />
     <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="Model\PizzaCartItemModel.cs" />
     <Compile Include="Model\PizzaDetailsModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\AppResources.Designer.cs">
@@ -104,7 +104,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Tools\Cart.cs" />
+    <Compile Include="Data\Cart.cs" />
+    <Compile Include="ViewModel\CartItemViewModel.cs" />
+    <Compile Include="ViewModel\PizzaCartButtonViewModel.cs" />
     <Compile Include="ViewModel\PizzaCartPageViewModel.cs" />
     <Compile Include="ViewModel\PizzaDetailsViewModel.cs" />
     <Compile Include="ViewModel\PizzaNavigationPageViewModel.cs" />
@@ -179,7 +181,9 @@
   <ItemGroup>
     <None Include="Assets\Tiles\IconicTileSmall.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Tools\" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

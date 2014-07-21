@@ -67,8 +67,8 @@
             <phone:LongListSelector 
                 ItemsSource="{Binding PizzaCartCollection}" 
                 ItemTemplate="{StaticResource ResultItemTemplate}"/>
-            
-            <Button Grid.Row="1">Оформить заказ</Button>
+
+            <Button Grid.Row="1" Command="{Binding GoToCheckoutCommand}">Оформить заказ</Button>
 
         </Grid>
     </Grid>
