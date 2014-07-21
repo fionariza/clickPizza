@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using ClickPizza.WindowsPhone.Data;
@@ -13,23 +12,23 @@ namespace ClickPizza.WindowsPhone.ViewModel
     {
         public PizzaCartPageViewModel()
         {
-            _pizzaCheckoutCollection = new ObservableCollection<PizzaDetailsViewModel>(Cart.Instance.CartCollection);
+            Cart.Instance.NewCollection(new DataSource(StubRepository.Instance).PizzaCollection);
             var phoneApplicationFrame = Application.Current.RootVisual as PhoneApplicationFrame;
             if (phoneApplicationFrame != null)
                 phoneApplicationFrame.Navigated += phoneApplicationFrame_Navigated;
         }
 
-
         void phoneApplicationFrame_Navigated(object sender, System.Windows.Navigation.NavigationEventArgs e)
         {
-            _pizzaCheckoutCollection = new ObservableCollection<PizzaDetailsViewModel>(Cart.Instance.CartCollection);
+            _pizzaCartCollection = new ObservableCollection<PizzaDetailsViewModel>(Cart.Instance.CartCollection);
+            RaisePropertyChanged("PizzaCartCollection");
         }
 
-        private ObservableCollection<PizzaDetailsViewModel> _pizzaCheckoutCollection;
+        private ObservableCollection<PizzaDetailsViewModel> _pizzaCartCollection;
 
-        public IEnumerable<PizzaDetailsViewModel> PizzaCheckoutCollection
+        public IEnumerable<PizzaDetailsViewModel> PizzaCartCollection
         {
-            get { return _pizzaCheckoutCollection; }
+            get { return _pizzaCartCollection; }
         }
     }
 }

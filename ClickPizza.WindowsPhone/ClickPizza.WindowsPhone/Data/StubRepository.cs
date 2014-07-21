@@ -26,7 +26,6 @@ namespace ClickPizza.WindowsPhone.Data
         {
             for (var i = 1; i < 11; i++)
             {
-                
                 string path = @"../Assets/PizzaImages/"+ new Random().Next(1,4)+".jpg";
                 yield return new PizzaDetailsModel(path, @"Pizza № " + i, "Some composition", i * i, i + i, i *   100 / 3.0F);
             }

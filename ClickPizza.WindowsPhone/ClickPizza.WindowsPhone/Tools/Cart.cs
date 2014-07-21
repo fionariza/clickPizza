@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using ClickPizza.WindowsPhone.Data;
 using ClickPizza.WindowsPhone.ViewModel;
 
 namespace ClickPizza.WindowsPhone.Tools
 {
     public class Cart
     {
-        private Cart(){}
+        private Cart()
+        {}
 
         static readonly Cart _cartinstance = new Cart();
 
@@ -32,5 +34,9 @@ namespace ClickPizza.WindowsPhone.Tools
             _cartCollection.Remove(pizzaDetails);
         }
 
+        public void NewCollection(IEnumerable<PizzaDetailsViewModel> collection)
+        {
+            _cartCollection = new ObservableCollection<PizzaDetailsViewModel>(collection);
+        }
     }
 }
