@@ -1,23 +1,30 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using ClickPizza.WindowsPhone.ViewModel;
+﻿using ClickPizza.WindowsPhone.ViewModel;
 
 namespace ClickPizza.WindowsPhone.Data
 {
     public class Cart
     {
         private Cart()
-        {}
+        {
+            CartButton = new PizzaCartButtonViewModel();
+            CartPage = new PizzaCartPageViewModel();
+        }
 
-        static readonly Cart _cartinstance = new Cart();
+        static Cart _cartinstance;
 
         public static Cart Instance
         {
-            get { return _cartinstance; }
+            get
+            {
+                if (_cartinstance == null) _cartinstance = new Cart();
+                return _cartinstance;
+            }
         }
 
-        PizzaCartButtonViewModel CartButton { get; set; }
+        public PizzaCartButtonViewModel CartButton { get; set; }
 
-        PizzaCartPageViewModel CartPage { get; set; }
+        public  PizzaCartPageViewModel CartPage { get; set; }
     }
+
+
 }

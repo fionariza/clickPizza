@@ -13,6 +13,7 @@ namespace ClickPizza.WindowsPhone.ViewModel
     public class PizzaDetailsViewModel : ViewModelBase
     {
         private PizzaDetailsModel _model;
+        private int _count;
 
         /// <summary>
         /// Initializes a new instance of the PizzaDetailsViewModel class.
@@ -38,5 +39,15 @@ namespace ClickPizza.WindowsPhone.ViewModel
 
         public float Price { get { return _model.Price; } }
 
+        public int Count
+        {
+            get { return _count; }
+            set
+            {
+                if (_count == value) return;
+                _count = value;
+                RaisePropertyChanged("Count");
+            }
+        }
     }
 }

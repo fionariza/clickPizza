@@ -70,6 +70,7 @@ namespace ClickPizza.WindowsPhone
         // This code will not execute when the application is reactivated
         private void Application_Launching(object sender, LaunchingEventArgs e)
         {
+            Cart.Instance.CartButton.Count = 2;
         }
 
         // Code to execute when the application is activated (brought to foreground)

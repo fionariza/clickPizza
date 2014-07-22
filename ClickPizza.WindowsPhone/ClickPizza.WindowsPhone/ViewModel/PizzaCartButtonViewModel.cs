@@ -1,9 +1,14 @@
-﻿using GalaSoft.MvvmLight;
+﻿using ClickPizza.WindowsPhone.Data;
+using GalaSoft.MvvmLight;
 
 namespace ClickPizza.WindowsPhone.ViewModel
 {
     public class PizzaCartButtonViewModel : ViewModelBase
     {
+        public PizzaCartButtonViewModel()
+        {
+            
+        }
         private bool _hasItem;
         private int _count;
 

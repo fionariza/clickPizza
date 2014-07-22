@@ -7,9 +7,8 @@ namespace ClickPizza.WindowsPhone.ViewModel
     {
         private PizzaCartItemModel _pizzacartItemModel;
 
-        public CartItemViewModel()
+        public  CartItemViewModel()
         { }
-
         public PizzaDetailsModel PizzaDetails
         {
             get { return _pizzacartItemModel.PizzaDetails; }
@@ -30,9 +29,6 @@ namespace ClickPizza.WindowsPhone.ViewModel
                     _pizzacartItemModel.Count = value;
                  RaisePropertyChanged("Count");
             }
-            
         }
-
-
     }
 }

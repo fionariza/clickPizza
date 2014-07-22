@@ -93,6 +93,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\CartProvider.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\StubRepository.cs" />
     <Compile Include="LocalizedStrings.cs" />
@@ -111,6 +112,9 @@
     <Compile Include="ViewModel\PizzaDetailsViewModel.cs" />
     <Compile Include="ViewModel\PizzaNavigationPageViewModel.cs" />
     <Compile Include="ViewModel\PizzaSelectionPageViewModel.cs" />
+    <Compile Include="View\PizzaCartButtonView.xaml.cs">
+      <DependentUpon>PizzaCartButtonView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PizzaCartPageView.xaml.cs">
       <DependentUpon>PizzaCartPageView.xaml</DependentUpon>
     </Compile>
@@ -129,6 +133,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="View\PizzaCartButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PizzaCartPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

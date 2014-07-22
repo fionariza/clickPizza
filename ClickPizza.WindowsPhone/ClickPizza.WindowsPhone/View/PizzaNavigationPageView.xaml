@@ -6,6 +6,7 @@
                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             xmlns:ignore="http://www.ignore.com"
+                            xmlns:local="clr-namespace:ClickPizza.WindowsPhone.View"
                             mc:Ignorable="d ignore"
                             FontFamily="{StaticResource PhoneFontFamilyNormal}"
                             FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -26,9 +27,20 @@
         <StackPanel x:Name="TitlePanel"
                     Grid.Row="0"
                     Margin="12,17,0,28">
-            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0"
+                       Text="{Binding Path=LocalizedResources.ApplicationTitle, 
+                       Source={StaticResource LocalizedStrings}}"
                        Style="{StaticResource PhoneTextNormalStyle}"
                        Margin="12,0" />
+                <local:PizzaCartButtonView Grid.Column="1" HorizontalAlignment="Right" />
+            </Grid>
+            
             <TextBlock Text="выбери заказ"
                        Margin="9,-7,0,0"
                        Style="{StaticResource PhoneTextTitle1Style}" />
