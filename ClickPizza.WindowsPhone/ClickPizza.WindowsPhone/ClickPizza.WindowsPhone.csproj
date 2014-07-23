@@ -93,7 +93,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Data\CartProvider.cs" />
     <Compile Include="Data\IRepository.cs" />
     <Compile Include="Data\StubRepository.cs" />
     <Compile Include="LocalizedStrings.cs" />
