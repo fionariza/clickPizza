@@ -9,9 +9,6 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
-    <UserControl.Resources>
-        <data:CartProvider x:Key="CartProvider"></data:CartProvider>
-    </UserControl.Resources>
     <Button Click="ButtonBase_OnClick">
         <Grid>
         <Grid.RowDefinitions>
