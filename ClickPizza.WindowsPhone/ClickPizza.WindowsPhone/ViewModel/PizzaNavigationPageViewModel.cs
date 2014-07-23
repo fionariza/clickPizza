@@ -17,7 +17,6 @@ namespace ClickPizza.WindowsPhone.ViewModel
         
         private void Navigation(string obj)
         {
-            Cart.Instance.CartButton.Count++;
             var phoneApplicationFrame = Application.Current.RootVisual as PhoneApplicationFrame;
             if (phoneApplicationFrame != null)
                 phoneApplicationFrame.Navigate(new Uri("/View/"+obj, UriKind.Relative));

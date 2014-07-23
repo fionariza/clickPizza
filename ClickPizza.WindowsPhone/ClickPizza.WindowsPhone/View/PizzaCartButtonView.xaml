@@ -19,7 +19,7 @@
              <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
             <Image></Image>
-            <TextBlock Text="{Binding Source={StaticResource CartProvider}, Path=Cart.CartButton.Count, Mode=OneWay}" Width="132" Grid.Row="1"/>
+            <TextBlock Text="{Binding Path=Count}" Width="132" Grid.Row="1"/>
         </Grid>
     </Button>
 </UserControl>

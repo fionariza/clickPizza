@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using ClickPizza.WindowsPhone.ViewModel;
 
 namespace ClickPizza.WindowsPhone.View
 {
@@ -8,7 +9,7 @@ namespace ClickPizza.WindowsPhone.View
         public PizzaCartButtonView()
         {
             InitializeComponent();
-
+            DataContext = new PizzaCartButtonViewModel();
         }
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)

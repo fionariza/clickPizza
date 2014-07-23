@@ -28,7 +28,7 @@ namespace ClickPizza.WindowsPhone.Data
             for (var i = 1; i < 11; i++)
             {
                 var path = @"../Assets/PizzaImages/"+ new Random().Next(1,4)+".jpg";
-                getPizzaCollection.Add(new PizzaDetailsModel(path, @"Pizza № " + i, "Some composition", i * i, i + i, i *   100 / 3.0F));
+                getPizzaCollection.Add(new PizzaDetailsModel(i,path, @"Pizza № " + i, "Some composition", i * i, i + i, i *   100 / 3.0F));
             }
         }
 
