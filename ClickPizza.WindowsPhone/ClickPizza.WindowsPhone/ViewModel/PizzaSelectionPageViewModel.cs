@@ -11,7 +11,7 @@ namespace ClickPizza.WindowsPhone.ViewModel
         public PizzaSelectionPageViewModel()
         {
             _pizzaCollection = new ObservableCollection<PizzaDetailsViewModel>(
-                App.Repository.GetPizzaCollection().Select(pizzaDetailsModel=> new PizzaDetailsViewModel(pizzaDetailsModel)));
+                App.Repository.GetPizzaCollection.Select(pizzaDetailsModel=> new PizzaDetailsViewModel(pizzaDetailsModel)));
         }
 
         private readonly ObservableCollection<PizzaDetailsViewModel> _pizzaCollection ;

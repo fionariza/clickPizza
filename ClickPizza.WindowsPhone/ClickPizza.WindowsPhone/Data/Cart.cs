@@ -7,7 +7,6 @@ namespace ClickPizza.WindowsPhone.Data
         private Cart()
         {
             CartButton = new PizzaCartButtonViewModel();
-            CartPage = new PizzaCartPageViewModel();
         }
 
         static Cart _cartinstance;
@@ -23,7 +22,6 @@ namespace ClickPizza.WindowsPhone.Data
 
         public PizzaCartButtonViewModel CartButton { get; set; }
 
-        public  PizzaCartPageViewModel CartPage { get; set; }
     }
 
 

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using GalaSoft.MvvmLight;
@@ -16,7 +15,7 @@ namespace ClickPizza.WindowsPhone.ViewModel
         
         void Refresh()
         {
-            _pizzaCartCollection = new ObservableCollection<PizzaDetailsViewModel>(App.Repository.GetPizzaCollection().Select(pizzadetails => new PizzaDetailsViewModel(pizzadetails)));
+            _pizzaCartCollection = new ObservableCollection<PizzaDetailsViewModel>(App.Repository.GetPizzaCollection.Select(pizzadetails => new PizzaDetailsViewModel(pizzadetails)));
         }
 
         private ObservableCollection<PizzaDetailsViewModel> _pizzaCartCollection;

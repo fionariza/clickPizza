@@ -12,7 +12,7 @@
     <UserControl.Resources>
         <data:CartProvider x:Key="CartProvider"></data:CartProvider>
     </UserControl.Resources>
-    <Button>
+    <Button Click="ButtonBase_OnClick">
         <Grid>
         <Grid.RowDefinitions>
              <RowDefinition></RowDefinition>

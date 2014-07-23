@@ -19,16 +19,19 @@ namespace ClickPizza.WindowsPhone.Data
             }
         }
 
-        private StubRepository()
-        { }
+        private readonly IList<PizzaDetailsModel> getPizzaCollection = new List<PizzaDetailsModel>();
+            
 
-        public IEnumerable<PizzaDetailsModel> GetPizzaCollection()
+        private StubRepository()
         {
+
             for (var i = 1; i < 11; i++)
             {
-                string path = @"../Assets/PizzaImages/"+ new Random().Next(1,4)+".jpg";
-                yield return new PizzaDetailsModel(path, @"Pizza № " + i, "Some composition", i * i, i + i, i *   100 / 3.0F);
+                var path = @"../Assets/PizzaImages/"+ new Random().Next(1,4)+".jpg";
+                getPizzaCollection.Add(new PizzaDetailsModel(path, @"Pizza № " + i, "Some composition", i * i, i + i, i *   100 / 3.0F));
             }
         }
+
+        public IEnumerable<PizzaDetailsModel> GetPizzaCollection { get { return getPizzaCollection; }  }
     }
 }
