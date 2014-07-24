@@ -7,39 +7,23 @@ namespace ClickPizza.WindowsPhone.ViewModel
     {
         public PizzaCartButtonViewModel()
         {
-            
+            Cart.Instance.CollectionChanged += CartCollectionChanged;
         }
 
         void CartCollectionChanged(object sender, System.EventArgs e)
         {
-            Count = Cart.Instance.Count;
+            RaisePropertyChanged("Count");
+            RaisePropertyChanged("HasItem");
         }
-
-
-        private bool _hasItem;
-        private int _count;
-
+        
         public bool HasItem
         {
-            get { return _hasItem; }
-            set
-            {
-                if (_hasItem == value) return;
-                _hasItem = value;
-                RaisePropertyChanged("HasItem");
-            }
+            get { return Count!=0; }
         }
 
         public int Count
         {
-            get { return _count; }
-            set
-            {
-                if (_count == value) return;
-                _count = value;
-                HasItem = Count != 0;
-                RaisePropertyChanged("Count");
-            }
+            get { return Cart.Instance.Count; }
         }
     }
 }
