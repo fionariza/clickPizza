@@ -40,7 +40,6 @@ namespace ClickPizza.WindowsPhone.ViewModel
         }
 
         #endregion
-
-
+        
     }
 }

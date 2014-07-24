@@ -10,9 +10,6 @@ namespace ClickPizza.WindowsPhone.View
         {
             InitializeComponent();
             DataContext = new PizzaSelectionPageViewModel();
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
         }
-
     }
 }

@@ -1,4 +1,5 @@
-﻿using ClickPizza.WindowsPhone.Data;
+﻿using System.Linq;
+using ClickPizza.WindowsPhone.Data;
 using GalaSoft.MvvmLight;
 
 namespace ClickPizza.WindowsPhone.ViewModel
@@ -7,8 +8,15 @@ namespace ClickPizza.WindowsPhone.ViewModel
     {
         public PizzaCartButtonViewModel()
         {
-            
+            Cart.Instance.CollectionChanged += CartCollectionChanged;
         }
+
+        void CartCollectionChanged(object sender, System.EventArgs e)
+        {
+            Count = Cart.Instance.PizzaCartCollection.Sum(im=>im.Count);
+        }
+
+
         private bool _hasItem;
         private int _count;
 
@@ -30,6 +38,7 @@ namespace ClickPizza.WindowsPhone.ViewModel
             {
                 if (_count == value) return;
                 _count = value;
+                HasItem = Count != 0;
                 RaisePropertyChanged("Count");
             }
         }

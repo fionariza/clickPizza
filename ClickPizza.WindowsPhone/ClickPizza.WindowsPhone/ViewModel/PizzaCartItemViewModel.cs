@@ -3,12 +3,17 @@ using GalaSoft.MvvmLight;
 
 namespace ClickPizza.WindowsPhone.ViewModel
 {
-    public class CartItemViewModel : ViewModelBase
+    public class PizzaCartItemViewModel : ViewModelBase
     {
         private PizzaCartItemModel _pizzacartItemModel;
 
-        public  CartItemViewModel()
+        public  PizzaCartItemViewModel()
         { }
+
+        public PizzaCartItemViewModel(PizzaCartItemModel model)
+        {
+            _pizzacartItemModel = model;
+        }
         public PizzaDetailsModel PizzaDetails
         {
             get { return _pizzacartItemModel.PizzaDetails; }

@@ -3,7 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:data="clr-namespace:ClickPizza.WindowsPhone.Data"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -11,7 +10,7 @@
     d:DesignHeight="480" d:DesignWidth="480">
     <Button Click="ButtonBase_OnClick">
         <Grid>
-        <Grid.RowDefinitions>
+          <Grid.RowDefinitions>
              <RowDefinition></RowDefinition>
              <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
