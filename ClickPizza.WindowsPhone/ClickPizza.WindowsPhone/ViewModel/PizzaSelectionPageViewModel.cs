@@ -17,20 +17,10 @@ namespace ClickPizza.WindowsPhone.ViewModel
             AddToCartCommand=new RelayCommand(AddToCart);
         }
 
-        public PizzaDetailsViewModel SelectedItem
-        {
-            get { return _selectedItem; }
-            set
-            {
-                if (_selectedItem == value) return;
-                _selectedItem = value;
-                RaisePropertyChanged("SelectedItem");
-            }
-        }
 
         private void AddToCart()
         {
-            Cart.Instance.Update(SelectedItem.GetModel,1);
+           
         }
 
         private readonly ObservableCollection<PizzaDetailsViewModel> _pizzaCollection ;

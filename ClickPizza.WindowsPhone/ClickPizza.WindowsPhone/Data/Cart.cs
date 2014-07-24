@@ -10,43 +10,7 @@ namespace ClickPizza.WindowsPhone.Data
     {
         private Cart()
         {
-            PizzaCartDictionary = new Dictionary<PizzaDetailsModel, int>();
-        }
-
-        public event EventHandler CollectionChanged;
-
-        private void OnCollectionChanged()
-        {
-            var handler = CollectionChanged;
-            if (handler != null) handler(this, EventArgs.Empty);
-        }
-
-        private Dictionary<PizzaDetailsModel, int> PizzaCartDictionary;
-
-        public int Count
-        {
-            get { return PizzaCartDictionary.Sum(kv => kv.Value); }
-        }
-
-        public IEnumerable<PizzaCartItemModel> PizzaCartCollection
-        {
-            get 
-            {
-                return PizzaCartDictionary.Select(keyValue => new PizzaCartItemModel(keyValue.Key,keyValue.Value));
-            }
-        }
-
-        public void Update(PizzaDetailsModel pizzaDetails, int count)
-        {
-            if (count == 0) { Delete(pizzaDetails); return; }
-            PizzaCartDictionary[pizzaDetails] = count;
-            OnCollectionChanged();
-        }
-
-        public void Delete(PizzaDetailsModel pizzaDetails)
-        {
-           if (PizzaCartDictionary.Remove(pizzaDetails))
-            OnCollectionChanged();
+            СartDictionary = new Dictionary<int, int>();
         }
 
         static Cart _cartinstance;
@@ -55,7 +19,39 @@ namespace ClickPizza.WindowsPhone.Data
         {
             get { return _cartinstance ?? (_cartinstance = new Cart()); }
         }
+        
+        public event EventHandler CollectionChanged;
 
+        private void OnCollectionChanged()
+        {
+            var handler = CollectionChanged;
+            if (handler != null) handler(this, EventArgs.Empty);
+        }
+
+        private Dictionary<int, int> СartDictionary;
+
+        public int Count
+        {
+            get { return СartDictionary.Sum(kv => kv.Value); }
+        }
+
+        public IEnumerable<PizzaCartItemModel> GetCartCollection
+        {
+            get
+            {
+                return СartDictionary.Select(kv => new PizzaCartItemModel(kv.Key, kv.Value));
+            }
+        }
+
+        public void Update(int pizzaId, int count)
+        {
+            if (count == 0) 
+                СartDictionary.Remove(pizzaId);
+            else
+                СartDictionary[pizzaId] = count;
+            OnCollectionChanged();
+        }
+        
     }
 
 }

@@ -75,7 +75,6 @@
                             <TextBlock TextWrapping="Wrap" Text="{Binding Path=Length, StringFormat='\{0\} см'}"/>
                             <TextBlock TextWrapping="Wrap" Text="{Binding Path = Weight,StringFormat='\{0\} г'}"/>
                             <TextBlock TextWrapping="Wrap" Text="{Binding Path = Price, StringFormat='\{0:C2\}'}"/>
-                            
                         </StackPanel>
                         </DataTemplate>
                 </phone:Pivot.ItemTemplate>

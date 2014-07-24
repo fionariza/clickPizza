@@ -8,13 +8,13 @@ namespace ClickPizza.WindowsPhone.Model
         {
         }
 
-        public PizzaCartItemModel(PizzaDetailsModel pizzaDetails,int count)
+        public PizzaCartItemModel(int pizzaId,int count)
         {
-            PizzaDetails = pizzaDetails;
+            PizzaId = pizzaId;
             Count = count;
         }
 
-        public PizzaDetailsModel PizzaDetails { get; set; }
+        public int PizzaId { get; set; }
 
         public int Count { get; set; }
     }

@@ -14,13 +14,13 @@ namespace ClickPizza.WindowsPhone.ViewModel
         {
             _pizzacartItemModel = model;
         }
-        public PizzaDetailsModel PizzaDetails
+        public int PizzaId
         {
-            get { return _pizzacartItemModel.PizzaDetails; }
+            get { return _pizzacartItemModel.PizzaId; }
             set
             {
-                if (_pizzacartItemModel.PizzaDetails == value)
-                _pizzacartItemModel.PizzaDetails = value;
+                if (_pizzacartItemModel.PizzaId == value)
+                _pizzacartItemModel.PizzaId = value;
                 RaisePropertyChanged("PizzaDetails");
             }
         }
