@@ -1,4 +1,7 @@
-﻿using ClickPizza.WindowsPhone.ViewModel;
+﻿using System;
+using System.Windows;
+using System.Windows.Navigation;
+using ClickPizza.WindowsPhone.ViewModel;
 using Microsoft.Phone.Controls;
 
 namespace ClickPizza.WindowsPhone.View
@@ -10,6 +13,11 @@ namespace ClickPizza.WindowsPhone.View
         {
             InitializeComponent();
             DataContext = new PizzaCartPageViewModel();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/View/PizzaCheckoutPageView.xaml", UriKind.Relative));
         }
     }
 }

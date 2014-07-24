@@ -68,9 +68,7 @@
                 ItemsSource="{Binding PizzaCartCollection}" 
                 ItemTemplate="{StaticResource ResultItemTemplate}"/>
 
-            <Button Grid.Row="1" Command="{Binding GoToCheckoutCommand}">Оформить заказ</Button>
-
+            <Button Grid.Row="1" Click="ButtonBase_OnClick" Margin="-10,0,10,0">Оформить заказ</Button>
         </Grid>
     </Grid>
-
 </phone:PhoneApplicationPage>

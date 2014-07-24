@@ -60,7 +60,6 @@
             <phone:Pivot HorizontalAlignment="Stretch" 
                          VerticalAlignment="Stretch"
                          ItemsSource="{Binding Path=PizzaCollection}"
-                         SelectedItem="{Binding Path=SelectedItem,Mode=TwoWay}"
                          >
                <phone:Pivot.HeaderTemplate>
                    <DataTemplate>
