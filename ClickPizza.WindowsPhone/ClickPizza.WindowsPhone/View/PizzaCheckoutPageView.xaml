@@ -49,17 +49,14 @@
             <TextBox Text="{Binding Path=Cellphone}" InputScope="TelephoneAreaCode" Height="69"></TextBox>
 
             <TextBlock>місто:</TextBlock>
-            <toolkit:ListPicker ItemsSource="{Binding City}">
-                <toolkit:ListPickerItem>
-                        <TextBlock Text="{Binding Path=Name}"></TextBlock>
-                </toolkit:ListPickerItem>
-            </toolkit:ListPicker>
+            <toolkit:ListPicker ItemsSource="{Binding City}"></toolkit:ListPicker>
 
             <TextBlock>адреса:</TextBlock>
             <TextBox Text="{Binding Path=Address}"></TextBox>
 
             <TextBlock>час:</TextBlock>
-            <toolkit:TimePicker DataContext="{Binding Time}"></toolkit:TimePicker>
+            <toolkit:TimePicker Value="{Binding Time}" >
+            </toolkit:TimePicker>
             
             <Button>Submit</Button>
         </StackPanel>
