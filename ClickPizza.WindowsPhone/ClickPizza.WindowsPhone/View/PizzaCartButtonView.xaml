@@ -3,12 +3,22 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:tools="clr-namespace:ClickPizza.WindowsPhone.Tools"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
-    <Button Click="ButtonBase_OnClick">
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="TrueBrush" Color="Orange"></SolidColorBrush>
+        <SolidColorBrush x:Key="FalseBrush" Color="Green"></SolidColorBrush>
+        <tools:BooleanToObjectConverter x:Key="ToObjectConverter"
+                                        TrueValue="{StaticResource TrueBrush}"
+                                        FalseValue="{StaticResource FalseBrush}"
+                                        />
+    </UserControl.Resources>
+    <Button Click="ButtonBase_OnClick" Background="{Binding HasItem, Converter={StaticResource ToObjectConverter}}">
+        
         <Grid>
           <Grid.RowDefinitions>
              <RowDefinition></RowDefinition>

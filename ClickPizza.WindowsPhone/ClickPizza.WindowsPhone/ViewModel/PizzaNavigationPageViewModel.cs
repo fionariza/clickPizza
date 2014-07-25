@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using ClickPizza.WindowsPhone.Data;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Phone.Controls;

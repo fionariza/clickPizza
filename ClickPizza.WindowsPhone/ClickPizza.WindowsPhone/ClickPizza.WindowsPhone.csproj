@@ -108,6 +108,7 @@
     </Compile>
     <Compile Include="Data\Cart.cs" />
     <Compile Include="Tools\BooleanToObjectConverter.cs" />
+    <Compile Include="Tools\BooleanToVisibleConverter.cs" />
     <Compile Include="ViewModel\PizzaCartItemViewModel.cs" />
     <Compile Include="ViewModel\PizzaCartButtonViewModel.cs" />
     <Compile Include="ViewModel\PizzaCartPageViewModel.cs" />
@@ -123,6 +124,9 @@
     </Compile>
     <Compile Include="View\PizzaCheckoutPageView.xaml.cs">
       <DependentUpon>PizzaCheckoutPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PizzaCounterButtonView.xaml.cs">
+      <DependentUpon>PizzaCounterButtonView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PizzaNavigationPageView.xaml.cs">
       <DependentUpon>PizzaNavigationPageView.xaml</DependentUpon>
@@ -148,6 +152,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PizzaCheckoutPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\PizzaCounterButtonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

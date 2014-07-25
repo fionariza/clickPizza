@@ -5,6 +5,7 @@ namespace ClickPizza.WindowsPhone.Data
 {
     public interface IRepository
     {
-        IEnumerable<PizzaDetailsModel> GetPizzaCollection { get; }
+        IEnumerable<PizzaDetailsModel> PizzaCollection { get; }
+        PizzaDetailsModel GetPizzaById(int id);
     }
 }

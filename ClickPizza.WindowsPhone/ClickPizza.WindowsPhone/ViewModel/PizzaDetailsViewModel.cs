@@ -1,6 +1,8 @@
 ﻿using System;
+using ClickPizza.WindowsPhone.Data;
 using ClickPizza.WindowsPhone.Model;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 
 namespace ClickPizza.WindowsPhone.ViewModel
 {
@@ -14,18 +16,34 @@ namespace ClickPizza.WindowsPhone.ViewModel
     {
         private PizzaDetailsModel _model;
         private int _count;
+        private bool _isAddedToCart;
 
         /// <summary>
         /// Initializes a new instance of the PizzaDetailsViewModel class.
         /// </summary>
         public PizzaDetailsViewModel()
         {
+            IsAddedToCart = false;
         }
         
         public PizzaDetailsViewModel(PizzaDetailsModel model)
         {
             _model = model;
+            AddToCartCommand = new RelayCommand(AddToCart);
+            CountMinusCommand = new RelayCommand(CountMinusCommandExecute);
+            CountPlusCommand = new RelayCommand(CountPlusCommandExecute);
         }
+
+        private void CountPlusCommandExecute()
+        {
+            Count++;
+        }
+
+        private void CountMinusCommandExecute()
+        {
+            Count--;
+        }
+
 
         public PizzaDetailsModel GetModel
         {
@@ -52,7 +70,37 @@ namespace ClickPizza.WindowsPhone.ViewModel
                 if (_count == value) return;
                 _count = value;
                 RaisePropertyChanged("Count");
+                Cart.Instance.Update(_model.Id, _count);
+                if (_count == 0) IsAddedToCart = false;
             }
         }
+
+        public bool IsAddedToCart
+        {
+            get { return _isAddedToCart; }
+            set
+            {
+                if (_isAddedToCart==value) return;
+                _isAddedToCart = value;
+                RaisePropertyChanged("IsAddedToCart");
+            }
+        }
+
+        public RelayCommand CountMinusCommand { get; private set; }
+        public RelayCommand CountPlusCommand { get; private set; }
+
+        public RelayCommand AddToCartCommand { get; private set; }
+        
+        private void AddToCart()
+        {
+            IsAddedToCart = true;
+            Count = 1;
+            Cart.Instance.Update(_model.Id, Count);
+        }
+
+        //private bool CanAddToCart()
+        //{
+        //    return !IsAddedToCart;
+        //}
     }
 }

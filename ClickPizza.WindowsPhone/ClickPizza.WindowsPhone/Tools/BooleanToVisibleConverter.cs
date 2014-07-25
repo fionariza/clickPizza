@@ -1,24 +1,21 @@
 ﻿using System;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
-using System.Windows.Media;
 
 namespace ClickPizza.WindowsPhone.Tools
 {
-    public class BooleanToObjectConverter : IValueConverter
+    public class BooleanToVisibleConverter: IValueConverter
     {
-        public object TrueValue { get; set; }
-        public object FalseValue { get; set; }
-
+        public bool IsInverted { get; set; }
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (value is bool) && (bool)value ? TrueValue : FalseValue;
+            return ((value is bool) && (bool)value) ^ IsInverted ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }
-
     }
 }

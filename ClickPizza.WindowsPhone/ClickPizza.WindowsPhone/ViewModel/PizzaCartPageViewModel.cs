@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using ClickPizza.WindowsPhone.Data;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 
 namespace ClickPizza.WindowsPhone.ViewModel
 {
@@ -10,36 +10,20 @@ namespace ClickPizza.WindowsPhone.ViewModel
     {
         public PizzaCartPageViewModel()
         {
-            GoToCheckoutCommand = new RelayCommand(GoToCheckout, CanCheckout);
+            _pizzaCartCollection = new ObservableCollection<PizzaCartItemViewModel>(Cart.Instance.GetCartCollection.Select(x => new PizzaCartItemViewModel(x)));
         }
-        
+
         void Refresh()
         {
-            _pizzaCartCollection = new ObservableCollection<PizzaDetailsViewModel>(App.Repository.GetPizzaCollection.Select(pizzadetails => new PizzaDetailsViewModel(pizzadetails)));
+            _pizzaCartCollection = new ObservableCollection<PizzaCartItemViewModel>(Cart.Instance.GetCartCollection.Select(x=>new PizzaCartItemViewModel(x)));
         }
 
-        private ObservableCollection<PizzaDetailsViewModel> _pizzaCartCollection;
+        private ObservableCollection<PizzaCartItemViewModel> _pizzaCartCollection;
 
-        public IEnumerable<PizzaDetailsViewModel> PizzaCartCollection
+        public IEnumerable<PizzaCartItemViewModel> PizzaCartCollection
         {
             get { return _pizzaCartCollection; }
         }
 
-        #region CheckoutButton
-
-        public RelayCommand GoToCheckoutCommand { get; private set; }
-
-        private void GoToCheckout()
-        {
-            
-        }
-
-        private bool CanCheckout()
-        {
-            return true;
-        }
-
-        #endregion
-        
     }
 }

@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using System.Linq;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
 
 namespace ClickPizza.WindowsPhone.ViewModel
 {
@@ -11,19 +10,10 @@ namespace ClickPizza.WindowsPhone.ViewModel
         public PizzaSelectionPageViewModel()
         {
             _pizzaCollection = new ObservableCollection<PizzaDetailsViewModel>(
-                App.Repository.GetPizzaCollection.Select(pizzaDetailsModel=> new PizzaDetailsViewModel(pizzaDetailsModel)));
-            AddToCartCommand=new RelayCommand(AddToCart);
-        }
-
-
-        private void AddToCart()
-        {
-           
+                App.Repository.PizzaCollection.Select(pizzaDetailsModel=> new PizzaDetailsViewModel(pizzaDetailsModel)));
         }
 
         private readonly ObservableCollection<PizzaDetailsViewModel> _pizzaCollection ;
-
-        public RelayCommand AddToCartCommand { get; private set; }
 
         public IEnumerable<PizzaDetailsViewModel> PizzaCollection
         {

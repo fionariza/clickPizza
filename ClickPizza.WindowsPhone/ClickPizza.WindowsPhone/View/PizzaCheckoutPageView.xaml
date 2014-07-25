@@ -46,7 +46,7 @@
             <TextBox Text="{Binding Path=ClientName}" Height="64"></TextBox>
 
             <TextBlock>телефон:</TextBlock>
-            <TextBox Text="{Binding Path=Cellphone}" InputScope="TelephoneAreaCode" Height="69"></TextBox>
+            <TextBox Text="{Binding Path=Cellphone}" InputScope="TelephoneNumber" Height="69"></TextBox>
 
             <TextBlock>місто:</TextBlock>
             <toolkit:ListPicker ItemsSource="{Binding City}"></toolkit:ListPicker>
