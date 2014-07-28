@@ -1,4 +1,4 @@
-﻿<phone:PhoneApplicationPage x:Class="ClickPizza.WindowsPhone.View.PizzaCheckoutPageView"
+﻿<phone:PhoneApplicationPage x:Class="ClickPizza.WindowsPhone.View.PizzaThankYouPageView"
                             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                             xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -6,14 +6,14 @@
                             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                             xmlns:ignore="http://www.ignore.com"
-                            xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
                             mc:Ignorable="d ignore"
                             FontFamily="{StaticResource PhoneFontFamilyNormal}"
                             FontSize="{StaticResource PhoneFontSizeNormal}"
                             Foreground="{StaticResource PhoneForegroundBrush}"
                             SupportedOrientations="Portrait"
                             Orientation="Portrait"
-                            shell:SystemTray.IsVisible="True">
+                            shell:SystemTray.IsVisible="True"
+                            >
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot"
@@ -22,43 +22,34 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
+      
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel"
                     Grid.Row="0"
-                    Margin="12,10,0,28">
-            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
+                    Margin="12,17,0,28">
+            <TextBlock  Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}"
                        Style="{StaticResource PhoneTextNormalStyle}"
                        Margin="12,0" />
-            <TextBlock Text="checkout page"
+            <TextBlock Text="thank you!"
                        Margin="9,-7,0,0"
-                       Style="{StaticResource PhoneTextTitle1Style}" Height="90" />
+                       Style="{StaticResource PhoneTextTitle1Style}" />
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <StackPanel x:Name="ContentPanel"
+        <Grid x:Name="ContentPanel"
               Grid.Row="1"
               Margin="12,0,12,0">
-            <TextBlock Text="{Binding Path=TotalPizzaCount,StringFormat='Общая колличество пиц: \{0\}'}"></TextBlock>
-            <TextBlock Text="{Binding Path=TotalPizzaSum,StringFormat='Общая сумма: \{0\}'}"></TextBlock>
-            
-            <TextBlock>им'я:</TextBlock>
-            <TextBox Text="{Binding Path=ClientName,Mode=TwoWay}" Height="64"></TextBox>
 
-            <TextBlock>телефон:</TextBlock>
-            <TextBox Text="{Binding Path=Cellphone,Mode=TwoWay}" InputScope="TelephoneNumber" Height="69"></TextBox>
+            <TextBlock Text="Our manager will call you soon"
+                       Style="{StaticResource PhoneTextNormalStyle}"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       TextAlignment="Center"
+                       TextWrapping="Wrap"
+                       FontSize="40" />
 
-            <TextBlock>місто:</TextBlock>
-            <toolkit:ListPicker SelectedItem="{Binding SelectedCity}" ItemsSource="{Binding City}"></toolkit:ListPicker>
+        </Grid>
 
-            <TextBlock>адреса:</TextBlock>
-            <TextBox Text="{Binding Path=Address,Mode=TwoWay}"></TextBox>
-
-            <TextBlock>час:</TextBlock>
-            <toolkit:TimePicker Value="{Binding Time}" >
-            </toolkit:TimePicker>
-
-            <Button Command="{Binding SubmitCommand}">Submit</Button>
-        </StackPanel>
     </Grid>
+
 </phone:PhoneApplicationPage>

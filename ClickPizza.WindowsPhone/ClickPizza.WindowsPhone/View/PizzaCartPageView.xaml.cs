@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
-using System.Windows.Navigation;
 using ClickPizza.WindowsPhone.ViewModel;
 using Microsoft.Phone.Controls;
 
