@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using ClickPizza.WindowsPhone.Data;
 using ClickPizza.WindowsPhone.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -9,43 +11,34 @@ namespace ClickPizza.WindowsPhone.ViewModel
 {
     public class PizzaCheckoutPageViewModel : ViewModelBase
     {
-        public PizzaCheckoutPageViewModel()
+        public int TotalPizzaCount
         {
-            SubmitCommand = new RelayCommand(OnSubmit,CanSubmit);
-            _city.Add(new CityModel("Lvov", "lv"));
-            _city.Add(new CityModel("Kiev", "kv"));
-            _city.Add(new CityModel("Kharkov", "kh"));
-            Time = DateTime.Now;
+            get { return Cart.Instance.Count; }
         }
 
-        private bool CanSubmit()
+        public float TotalPizzaSum
         {
-            return true;
+            get { return Cart.Instance.СartDictionary.Sum(x => App.Repository.GetPizzaById(x.Key).Price*x.Value); }
         }
-
-        private void OnSubmit()
-        {
-        }
-
-        public int TotalPizzaCount { get; set; }
-        public int TotalPizzaSum { get; set; }
 
         public string ClientName { get; set; }
 
         public int Cellphone { get; set; }
 
+        private DateTime? _time;
         public DateTime? Time
         {
             get { return _time; }
             set
             {
-                _time = _time <= DateTime.Now ? DateTime.Now.AddHours(1) : value;
+                _time = value;
                 RaisePropertyChanged("Time");
             }
         }
 
+        
         private readonly ObservableCollection<CityModel> _city = new ObservableCollection<CityModel>();
-        private DateTime? _time;
+        private float _totalPizzaSum;
 
         public IEnumerable<CityModel> City
         {
@@ -58,5 +51,27 @@ namespace ClickPizza.WindowsPhone.ViewModel
 
         public RelayCommand SubmitCommand { get; private set; }
 
+        public PizzaCheckoutPageViewModel()
+        {
+            SubmitCommand = new RelayCommand(OnSubmit, CanSubmit);
+            _city.Add(new CityModel("Lvov", "lv"));
+            _city.Add(new CityModel("Kiev", "kv"));
+            _city.Add(new CityModel("Kharkov", "kh"));
+            Time = DateTime.Now;
+        }
+
+        private bool CanSubmit()
+        {
+            return true;
+        }
+
+        private void OnSubmit()
+        { }
+
+        public void Refresh()
+        {
+            RaisePropertyChanged("TotalPizzaSum");
+            RaisePropertyChanged("TotalPizzaCount");
+        }
     }
 }

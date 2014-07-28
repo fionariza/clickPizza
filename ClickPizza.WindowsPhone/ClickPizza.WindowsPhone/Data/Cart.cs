@@ -35,6 +35,7 @@ namespace ClickPizza.WindowsPhone.Data
             get { return СartDictionary.Sum(kv => kv.Value); }
         }
 
+        
         public IEnumerable<PizzaCartItemModel> CartCollection
         {
             get

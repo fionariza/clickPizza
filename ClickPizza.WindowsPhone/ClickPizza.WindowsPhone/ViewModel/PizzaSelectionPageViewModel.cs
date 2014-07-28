@@ -8,19 +8,18 @@ namespace ClickPizza.WindowsPhone.ViewModel
 {
     public class PizzaSelectionPageViewModel : ViewModelBase
     {
-        private PizzaDetailsViewModel _selectedPizzaDetailsViewModel;
-        public PizzaDetailsViewModel SelectedPizzaDetailsViewModel
+        private int _selectedPizzaDetailsIndex;
+        public int SelectedPizzaDetailsIndex
         {
-            get { return _selectedPizzaDetailsViewModel; }
+            get { return _selectedPizzaDetailsIndex; }
             set
             {
-                if (_selectedPizzaDetailsViewModel==value)
-                _selectedPizzaDetailsViewModel = value;
-                RaisePropertyChanged("SelectedPizzaDetailsViewModel");
+                _selectedPizzaDetailsIndex = value;
+                RaisePropertyChanged("SelectedPizzaDetailsIndex");
             }
         }
 
-        private ObservableCollection<PizzaDetailsViewModel> _pizzaCollection ;
+        private readonly ObservableCollection<PizzaDetailsViewModel> _pizzaCollection = new ObservableCollection<PizzaDetailsViewModel>();
         public IList<PizzaDetailsViewModel> PizzaCollection
         {
             get { return _pizzaCollection; }
@@ -28,31 +27,9 @@ namespace ClickPizza.WindowsPhone.ViewModel
 
         public PizzaSelectionPageViewModel()
         {
-            if (Cart.Instance.Count==0)
                 _pizzaCollection = new ObservableCollection<PizzaDetailsViewModel>(
                     App.Repository.PizzaCollection.Select(
                         pizzaDetailsModel => new PizzaDetailsViewModel(pizzaDetailsModel)));
-            else
-            {
-                _pizzaCollection = new ObservableCollection<PizzaDetailsViewModel>();
-                foreach (var detailsModel in App.Repository.PizzaCollection)
-                {
-                    var count = 0;
-                    Cart.Instance.СartDictionary.TryGetValue(detailsModel.Id, out count);
-                    _pizzaCollection.Add(new PizzaDetailsViewModel(detailsModel, count));
-                }
-        }
-    }
-
-        public void Refresh()
-        {
-            _pizzaCollection = new ObservableCollection<PizzaDetailsViewModel>();
-            foreach (var detailsModel in App.Repository.PizzaCollection)
-            {
-                var count = 0;
-                Cart.Instance.СartDictionary.TryGetValue(detailsModel.Id, out count);
-                _pizzaCollection.Add(new PizzaDetailsViewModel(detailsModel,count));
-            }
         }
 
     }

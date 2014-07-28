@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Navigation;
 using ClickPizza.WindowsPhone.ViewModel;
@@ -17,7 +18,7 @@ namespace ClickPizza.WindowsPhone.View
 
         private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/View/PizzaCheckoutPageView.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/View/PizzaCheckoutPageView.xaml", UriKind.RelativeOrAbsolute));
         }
     }
 }

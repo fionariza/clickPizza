@@ -29,7 +29,6 @@ namespace ClickPizza.WindowsPhone.Data
         }
         private StubRepository()
         {
-
             for (var i = 1; i < 11; i++)
             {
                 var path = @"../Assets/PizzaImages/"+ new Random().Next(1,4)+".jpg";

@@ -65,6 +65,7 @@
             <phone:Pivot HorizontalAlignment="Stretch" 
                          VerticalAlignment="Stretch"
                          ItemsSource="{Binding Path=PizzaCollection}"
+                         SelectedIndex="{Binding SelectedPizzaDetailsIndex}"
                          >
                <phone:Pivot.HeaderTemplate>
                    <DataTemplate>

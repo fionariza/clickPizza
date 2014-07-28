@@ -24,13 +24,13 @@ namespace ClickPizza.WindowsPhone.ViewModel
         public PizzaDetailsViewModel()
         {
         }
-        
-        public PizzaDetailsViewModel(PizzaDetailsModel model):this(model,0)
-        {}
-        public PizzaDetailsViewModel(PizzaDetailsModel model,int count)
+
+        public PizzaDetailsViewModel(PizzaDetailsModel model)
         {
             _model = model;
-            Count = count; 
+            int count = 0;
+            Cart.Instance.СartDictionary.TryGetValue(model.Id, out count);
+            SetCount(count); 
             AddToCartCommand = new RelayCommand(AddToCart);
             CountMinusCommand = new RelayCommand(CountMinusCommandExecute);
             CountPlusCommand = new RelayCommand(CountPlusCommandExecute);
@@ -69,11 +69,8 @@ namespace ClickPizza.WindowsPhone.ViewModel
             get { return _count; }
             set
             {
-                if (_count == value) return;
-                _count = value;
-                RaisePropertyChanged("Count");
+                SetCount(value);
                 Cart.Instance.Update(_model.Id, _count);
-                if (_count == 0) IsAddedToCart = false;
             }
         }
 
@@ -82,7 +79,6 @@ namespace ClickPizza.WindowsPhone.ViewModel
             get { return _isAddedToCart; }
             set
             {
-                if (_isAddedToCart==value) return;
                 _isAddedToCart = value;
                 RaisePropertyChanged("IsAddedToCart");
             }
@@ -98,6 +94,13 @@ namespace ClickPizza.WindowsPhone.ViewModel
             IsAddedToCart = true;
             Count = 1;
             Cart.Instance.Update(_model.Id, Count);
+        }
+
+        private void SetCount(int count)
+        {
+            _count = count;
+            RaisePropertyChanged("Count");
+            IsAddedToCart = _count > 0;
         }
 
     }
