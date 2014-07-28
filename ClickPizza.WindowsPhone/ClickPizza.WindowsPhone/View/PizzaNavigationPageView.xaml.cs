@@ -11,7 +11,6 @@ namespace ClickPizza.WindowsPhone.View
         public PizzaNavigationPageView()
         {
             InitializeComponent();
-            DataContext = new PizzaNavigationPageViewModel();
         }
 
         private void ChoosePizzaButton_OnClick(object sender, RoutedEventArgs e)
@@ -21,12 +20,12 @@ namespace ClickPizza.WindowsPhone.View
 
         private void DayPizza_OnClick(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void Constructor_OnClick(object sender, RoutedEventArgs e)
         {
-           
+
         }
 
         private void Settings_OnClick(object sender, RoutedEventArgs e)

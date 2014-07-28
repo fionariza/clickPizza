@@ -36,7 +36,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Image Grid.RowSpan="2" Height="100" Width="100" Source="{Binding ImageUri}"></Image>
-                    <TextBlock Grid.Column="1" Text="{Binding Name}"></TextBlock>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Name}"></TextBlock>
                     <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
                         <TextBlock Text="{Binding Price, StringFormat='\{0:C2\}'}"></TextBlock>
                         <TextBlock TextWrapping="Wrap" Text="{Binding Path=Length, StringFormat='\{0\} см'}"/>
@@ -45,7 +45,7 @@
                         <TextBlock Text="{Binding TotalPrice}"></TextBlock>
                     </StackPanel>
                     
-                    <Button Grid.Column="1" Grid.Row="2">
+                    <Button Grid.Column="1" Grid.Row="2" Command="{Binding EditCommand}">
                         редагувати
                     </Button>
                     

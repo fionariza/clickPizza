@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Windows;
 using ClickPizza.WindowsPhone.Model;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using Microsoft.Phone.Controls;
 
 namespace ClickPizza.WindowsPhone.ViewModel
 {
@@ -63,6 +66,15 @@ namespace ClickPizza.WindowsPhone.ViewModel
             }
         }
 
+        public RelayCommand EditCommand { get; private set; }
+        private void EditCommandAction()
+        {
+            var phoneApplicationFrame = Application.Current.RootVisual as PhoneApplicationFrame;
+            //При нажатии на кнопку - делаем навигацию на страницу выбора пиццы и передаем id
+            if (phoneApplicationFrame != null)
+                phoneApplicationFrame.Navigate(new Uri("/View/PizzaSelectionPageView.xaml?item=" + _cartItemModel.PizzaId,UriKind.RelativeOrAbsolute));
+        }
+
         public  PizzaCartItemViewModel()
         { }
 
@@ -70,7 +82,9 @@ namespace ClickPizza.WindowsPhone.ViewModel
         {
             _cartItemModel = model;
             _pizzadetailsModel = App.Repository.GetPizzaById(_cartItemModel.PizzaId);
+            EditCommand=new RelayCommand(EditCommandAction);
         }
+
 
     }
 }

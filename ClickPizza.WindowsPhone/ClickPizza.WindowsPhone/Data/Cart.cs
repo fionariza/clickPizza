@@ -28,14 +28,14 @@ namespace ClickPizza.WindowsPhone.Data
             if (handler != null) handler(this, EventArgs.Empty);
         }
 
-        private Dictionary<int, int> СartDictionary;
+        public Dictionary<int, int> СartDictionary { get; private set; }
 
         public int Count
         {
             get { return СartDictionary.Sum(kv => kv.Value); }
         }
 
-        public IEnumerable<PizzaCartItemModel> GetCartCollection
+        public IEnumerable<PizzaCartItemModel> CartCollection
         {
             get
             {

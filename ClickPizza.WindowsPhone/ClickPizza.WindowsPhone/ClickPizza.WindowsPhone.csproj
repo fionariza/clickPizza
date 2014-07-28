@@ -114,8 +114,10 @@
     <Compile Include="ViewModel\PizzaCartPageViewModel.cs" />
     <Compile Include="ViewModel\PizzaCheckoutPageViewModel.cs" />
     <Compile Include="ViewModel\PizzaDetailsViewModel.cs" />
-    <Compile Include="ViewModel\PizzaNavigationPageViewModel.cs" />
     <Compile Include="ViewModel\PizzaSelectionPageViewModel.cs" />
+    <Compile Include="View\PizzaNavigationPageView.xaml.cs">
+      <DependentUpon>PizzaNavigationPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\PizzaCartButtonView.xaml.cs">
       <DependentUpon>PizzaCartButtonView.xaml</DependentUpon>
     </Compile>
@@ -127,9 +129,6 @@
     </Compile>
     <Compile Include="View\PizzaCounterButtonView.xaml.cs">
       <DependentUpon>PizzaCounterButtonView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\PizzaNavigationPageView.xaml.cs">
-      <DependentUpon>PizzaNavigationPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\PizzaSelectionPageView.xaml.cs">
       <DependentUpon>PizzaSelectionPageView.xaml</DependentUpon>
@@ -143,6 +142,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="View\PizzaNavigationPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\PizzaCartButtonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,10 +159,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\PizzaCounterButtonView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\PizzaNavigationPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

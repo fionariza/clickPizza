@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using ClickPizza.WindowsPhone.Model;
 
 namespace ClickPizza.WindowsPhone.Data
@@ -24,7 +25,7 @@ namespace ClickPizza.WindowsPhone.Data
 
         public PizzaDetailsModel GetPizzaById(int id)
         {
-            return _pizzaCollection[id];
+            return _pizzaCollection.First(p=>p.Id==id);
         }
         private StubRepository()
         {

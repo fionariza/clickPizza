@@ -10,12 +10,12 @@ namespace ClickPizza.WindowsPhone.ViewModel
     {
         public PizzaCartPageViewModel()
         {
-            _pizzaCartCollection = new ObservableCollection<PizzaCartItemViewModel>(Cart.Instance.GetCartCollection.Select(x => new PizzaCartItemViewModel(x)));
+            _pizzaCartCollection = new ObservableCollection<PizzaCartItemViewModel>(Cart.Instance.CartCollection.Select(x => new PizzaCartItemViewModel(x)));
         }
 
         void Refresh()
         {
-            _pizzaCartCollection = new ObservableCollection<PizzaCartItemViewModel>(Cart.Instance.GetCartCollection.Select(x=>new PizzaCartItemViewModel(x)));
+            _pizzaCartCollection = new ObservableCollection<PizzaCartItemViewModel>(Cart.Instance.CartCollection.Select(x=>new PizzaCartItemViewModel(x)));
         }
 
         private ObservableCollection<PizzaCartItemViewModel> _pizzaCartCollection;

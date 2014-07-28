@@ -32,7 +32,7 @@
                     <ColumnDefinition></ColumnDefinition>
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
-                
+
                 <TextBlock Grid.Column="0"
                        Text="{Binding Path=LocalizedResources.ApplicationTitle, 
                        Source={StaticResource LocalizedStrings}}"
@@ -40,20 +40,20 @@
                        Margin="12,0" />
                 <local:PizzaCartButtonView Grid.Column="1" HorizontalAlignment="Right" />
             </Grid>
-            
+
             <TextBlock Text="выбери заказ"
                        Margin="9,-7,0,0"
                        Style="{StaticResource PhoneTextTitle1Style}" />
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <StackPanel x:Name="ContentPanel" Grid.Row="1"> 
+        <StackPanel x:Name="ContentPanel" Grid.Row="1">
             <Button Content="Выбрать готовую пиццу"
                     Click="ChoosePizzaButton_OnClick"/>
             <Button Content="Пицца дня"  Click="DayPizza_OnClick"/>
             <Button Content="Конструктор" Click="Constructor_OnClick"/>
             <Button Content="Настройки" Click="Settings_OnClick" />
         </StackPanel>
-       
+
     </Grid>
 </phone:PhoneApplicationPage>
